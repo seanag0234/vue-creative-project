@@ -1,23 +1,90 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <nav-bar></nav-bar>
     <router-view/>
   </div>
 </template>
 
 <script>
+  import NavBar from './components/NavBar'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{NavBar}
 }
 </script>
 
+<style lang="sass">
+  @import "assets/sass/main.sass"
+</style>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .welcome.is-info {
+    background: #36D1DC;
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+  }
+  html, body {
+    font-family: 'Open Sans', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100%;
+    background: #ECF0F3;
+  }
+  .columns {
+    width: 100%;
+    height: 100%;
+  }
+  .menu-label {
+    color: #8F99A3;
+    letter-spacing: 1.3;
+    font-weight: 700;
+  }
+  .menu-list a {
+    color: #0F1D38;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .menu-list a:hover {
+    background-color: transparent;
+    color: #276cda;
+  }
+  .menu-list a.is-active {
+    background-color: transparent;
+    color: #276cda;
+    font-weight: 700;
+  }
+  .card {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+    margin-bottom: 2rem;
+  }
+  .card-header-title {
+    color: #8F99A3;
+    font-weight: 400;
+  }
+  .info-tiles {
+    margin: 1rem 0;
+  }
+  .info-tiles .subtitle {
+    font-weight: 300;
+    color: #8F99A3;
+  }
+  .hero.welcome .title, .hero.welcome .subtitle {
+    color: hsl(192, 17%, 99%);
+  }
+  .card .content {
+    font-size: 14px;
+  }
+  .card-footer-item {
+    font-size: 14px;
+    font-weight: 700;
+    color: #8F99A3;
+  }
+  .card-footer-item:hover {
+  }
+  .card-table .table {
+    margin-bottom: 0;
+  }
+  .events-card .card-table {
+    max-height: 250px;
+    overflow-y: scroll;
+  }
 </style>
