@@ -2,7 +2,7 @@
   <nav class="navbar welcome is-info">
     <div class="container">
       <div class="navbar-brand">
-        <router-link  class="navbar-item brand-text"  to="/">
+        <router-link  class="navbar-item brand-text"  to="/" exact>
           The Sandberg Vault
         </router-link>
         <div class="burger navbar-burger" data-target="navMenu">
@@ -13,7 +13,7 @@
       </div>
       <div id="navMenu" class="navbar-menu">
         <div class="navbar-start">
-          <router-link class="navbar-item" to="/">
+          <router-link class="navbar-item" to="/" exact>
             Home
           </router-link>
           <div class="navbar-item has-dropdown is-hoverable">

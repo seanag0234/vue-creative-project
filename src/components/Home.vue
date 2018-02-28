@@ -1,59 +1,17 @@
 <template>
   <div class="container">
     <div class="columns">
-      <div class="column is-3">
-        <aside class="menu">
-          <p class="menu-label">
-            Movies
-          </p>
-          <ul class="menu-list">
-            <li><a class="is-active">Dashboard</a></li>
-            <li><a>My Movies</a></li>
-            <li><a>My Wishlist</a></li>
-            <li><a>Loaned</a></li>
-            <li><a>Borrowed</a></li>
-          </ul>
-          <p class="menu-label">
-            Family Members
-          </p>
-          <ul class="menu-list">
-            <li><a>Team Settings</a></li>
-            <li>
-              <a>Manage Your Team</a>
-              <ul>
-                <li><a>Members</a></li>
-                <li><a>Plugins</a></li>
-                <li><a>Add a member</a></li>
-              </ul>
-            </li>
-            <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
-          </ul>
-          <p class="menu-label">
-            Transactions
-          </p>
-          <ul class="menu-list">
-            <li><a>Payments</a></li>
-            <li><a>Transfers</a></li>
-            <li><a>Balance</a></li>
-          </ul>
-        </aside>
-      </div>
-      <div class="column is-9">
+      <div class="column is-centered">
         <nav class="breadcrumb" aria-label="breadcrumbs">
           <ul>
-            <li><a href="../">Bulma</a></li>
-            <li><a href="../">Templates</a></li>
-            <li><a href="../">Examples</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Admin</a></li>
+            <li class="is-active"><router-link to="/">Home</router-link></li>
           </ul>
         </nav>
         <section class="hero is-info welcome is-small">
           <div class="hero-body">
             <div class="container">
               <h1 class="title">
-                Hey Aubrey! :)
+                Hey {{user.name}}! :)
               </h1>
               <h2 class="subtitle">
                 I hope you are having a great day!
@@ -65,26 +23,26 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">439k</p>
-                <p class="subtitle">Users</p>
+                <p class="title">{{user.movies.owned.length}}</p>
+                <p class="subtitle">Movies Owned</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">59k</p>
-                <p class="subtitle">Products</p>
+                <p class="title">{{user.movies.loaned.length}}</p>
+                <p class="subtitle">Movies Loaned</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">3.4k</p>
-                <p class="subtitle">Open Orders</p>
+                <p class="title">{{user.movies.borrowed.length}}</p>
+                <p class="subtitle">Movies Borrowed</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">19</p>
-                <p class="subtitle">Exceptions</p>
+                <p class="title">{{user.movies.wishList.length}}</p>
+                <p class="subtitle">Wishlished Movies</p>
               </article>
             </div>
           </div>
@@ -94,69 +52,35 @@
             <div class="card events-card">
               <header class="card-header">
                 <p class="card-header-title">
-                  Events
+                  Recent Activity
                 </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
+                <!--<a href="#" class="card-header-icon" aria-label="more options">-->
+                  <!--<span class="icon">-->
+                    <!--<i class="fa fa-angle-down" aria-hidden="true"></i>-->
+                  <!--</span>-->
+                <!--</a>-->
               </header>
               <div class="card-table">
                 <div class="content">
-                  <table class="table is-fullwidth is-striped">
+                  <table class="table is-fullwidth is-striped is-hoverable">
                     <tbody>
                     <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
+                      <td></td>
+                      <th>Title</th>
+                      <th>Status</th>
                     </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
-                    </tr>
-                    <tr>
-                      <td width="5%"><i class="fa fa-bell-o"></i></td>
-                      <td>Lorum ipsum dolem aire</td>
-                      <td><a class="button is-small is-primary" href="#">Action</a></td>
+                    <tr v-for="movie in recentActivity">
+                      <td width="5%"><i class="fa fa-film" aria-hidden="true"></i></td>
+                      <td>{{movie.title}}</td>
+                      <td>{{movie.status}}</td>
+                      <!--<td><a class="button is-small is-primary" href="#">Action</a></td>-->
                     </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
               <footer class="card-footer">
-                <a href="#" class="card-footer-item">View All</a>
+                <!--<a href="#" class="card-footer-item">view all</a>-->
               </footer>
             </div>
           </div>
@@ -164,51 +88,29 @@
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
-                  Inventory Search
+                  Movie Search
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
+                  <!--<span class="icon">-->
+                    <!--<i class="fa fa-angle-down" aria-hidden="true"></i>-->
+                  <!--</span>-->
                 </a>
               </header>
               <div class="card-content">
                 <div class="content">
                   <div class="control has-icons-left has-icons-right">
-                    <input class="input is-large" type="text" placeholder="">
+                    <input v-model.trim="search" class="input is-large" type="text" placeholder="">
                     <span class="icon is-medium is-left">
                       <i class="fa fa-search"></i>
                     </span>
-                    <span class="icon is-medium is-right">
-                      <i class="fa fa-check"></i>
-                    </span>
+                    <!--<span class="icon is-medium is-right">-->
+                      <!--<i class="fa fa-check"></i>-->
+                    <!--</span>-->
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  User Search
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <div class="control has-icons-left has-icons-right">
-                    <input class="input is-large" type="text" placeholder="">
-                    <span class="icon is-medium is-left">
-                      <i class="fa fa-search"></i>
-                    </span>
-                    <span class="icon is-medium is-right">
-                      <i class="fa fa-check"></i>
-                    </span>
-                  </div>
-                </div>
+                <ul v-if="searchResults.length > 0">
+                  <li v-for="result in searchResults">{{result.title}}</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -220,13 +122,51 @@
 </template>
 
 <script>
+  import {mapGetters, mapActions} from 'vuex';
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      search: '',
+      searchResults: []
+    }
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'user']),
+    recentActivity: function() {
+      return this.allMovies.slice(0, 5);
+    },
+    allMovies: function () {
+      let allMovies = [].concat(this.user.movies.owned, this.user.movies.borrowed, this.user.movies.loaned, this.user.movies.wishList);
+      allMovies.sort((a, b) => {
+        if (a.updatedAt < b.updatedAt) {
+          return -1;
+        }
+        if (a.updatedAt > b.updatedAt) {
+          return 1
+        }
+        return 0;
+      });
+      return allMovies;
+    },
+  },
+  watch: {
+    search: function(value, oldValue) {
+      if ((value !== '') && (value !== oldValue)) {
+        this.doSearch();
+      }
+    },
+
+  },
+  methods: {
+    ...mapActions({
+      logout: 'logout'
+    }),
+    doSearch: function () {
+      console.log("DOing search ", this.search);
     }
   }
+
 }
 </script>
 <style scoped>

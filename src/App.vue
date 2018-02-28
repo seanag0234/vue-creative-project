@@ -7,10 +7,10 @@
 
 <script>
   import NavBar from './components/NavBar'
-export default {
-  name: 'App',
-  components:{NavBar}
-}
+  export default {
+    name: 'App',
+    components:{NavBar}
+  }
 </script>
 
 <style lang="sass">
@@ -30,7 +30,6 @@ export default {
     background: #ECF0F3;
   }
   .columns {
-    width: 100%;
     height: 100%;
   }
   .menu-label {
