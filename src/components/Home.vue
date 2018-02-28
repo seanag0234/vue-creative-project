@@ -128,62 +128,62 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex';
-export default {
-  name: 'Home',
-  data () {
-    return {
-      search: '',
-      searchResults: []
-    }
-  },
-  computed: {
-    ...mapGetters(['isAuthenticated', 'user']),
-    recentActivity: function() {
-      return this.allMovies.slice(0, 5);
-    },
-    allMovies: function () {
-      let allMovies = [].concat(this.user.movies.owned, this.user.movies.borrowed, this.user.movies.loaned, this.user.movies.wishList);
-      allMovies.sort((a, b) => {
-        if (a.updatedAt < b.updatedAt) {
-          return -1;
-        }
-        if (a.updatedAt > b.updatedAt) {
-          return 1
-        }
-        return 0;
-      });
-      return allMovies;
-    },
-  },
-  watch: {
-    search: function(value, oldValue) {
-      if (value === '') {
-        this.searchResults = [];
-      } else if (value !== oldValue) {
-        this.doSearch();
+  export default {
+    name: 'Home',
+    data () {
+      return {
+        search: '',
+        searchResults: []
       }
     },
-  },
-  methods: {
-    ...mapActions({
-      logout: 'logout'
-    }),
-    doSearch: function () {
-      this.searchResults = this.allMovies.filter(movie => {
-        let title = movie.title.toLowerCase();
-        return title.includes(this.search.toLowerCase());
-      })
-        .sort((a, b) => {
-          if (a.title < b.title) {
+    computed: {
+      ...mapGetters(['isAuthenticated', 'user']),
+      recentActivity: function() {
+        return this.allMovies.slice(0, 5);
+      },
+      allMovies: function () {
+        let allMovies = [].concat(this.user.movies.owned, this.user.movies.borrowed, this.user.movies.loaned, this.user.movies.wishList);
+        allMovies.sort((a, b) => {
+          if (a.updatedAt < b.updatedAt) {
             return -1;
           }
-          if (a.title > b.title) {
-            return 1;
+          if (a.updatedAt > b.updatedAt) {
+            return 1
           }
           return 0;
         });
+        return allMovies;
+      },
+    },
+    watch: {
+      search: function(value, oldValue) {
+        if (value === '') {
+          this.searchResults = [];
+        } else if (value !== oldValue) {
+          this.doSearch();
+        }
+      },
+    },
+    methods: {
+      ...mapActions({
+        logout: 'logout'
+      }),
+      doSearch: function () {
+        this.searchResults = this.allMovies.filter(movie => {
+          let title = movie.title.toLowerCase();
+          return title.includes(this.search.toLowerCase());
+        })
+          .sort((a, b) => {
+            if (a.title < b.title) {
+              return -1;
+            }
+            if (a.title > b.title) {
+              return 1;
+            }
+            return 0;
+          });
+      }
     }
-  }
 
 }
 </script>
