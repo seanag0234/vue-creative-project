@@ -2,9 +2,9 @@
   <nav class="navbar welcome is-info">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item brand-text" href="../">
+        <router-link  class="navbar-item brand-text"  to="/">
           The Sandberg Vault
-        </a>
+        </router-link>
         <div class="burger navbar-burger" data-target="navMenu">
           <span></span>
           <span></span>
@@ -13,26 +13,26 @@
       </div>
       <div id="navMenu" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="admin.html">
+          <router-link class="navbar-item" to="/">
             Home
-          </a>
+          </router-link>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="/documentation/overview/start/">
+            <router-link  class="navbar-link"  to="/documentation/overview/start/">
               Movies
-            </a>
+            </router-link>
             <div class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="/documentation/overview/start/">
+              <router-link  class="navbar-item"  to="/documentation/overview/start/">
                 My movies
-              </a>
-              <a class="navbar-item" href="/documentation/overview/start/">
+              </router-link>
+              <router-link  class="navbar-item"  to="/documentation/overview/start/">
                 My Wishlist
-              </a>
-              <a class="navbar-item" href="/documentation/overview/start/">
+              </router-link>
+              <router-link  class="navbar-item"  to="/documentation/overview/start/">
                 Loaned
-              </a>
-              <a class="navbar-item" href="/documentation/overview/start/">
+              </router-link>
+              <router-link  class="navbar-item"  to="/documentation/overview/start/">
                 Borrowed
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
