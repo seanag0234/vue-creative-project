@@ -108,9 +108,14 @@
                     <!--</span>-->
                   </div>
                 </div>
-                <ul v-if="searchResults.length > 0">
-                  <li v-for="result in searchResults">{{result.title}}</li>
-                </ul>
+                  <table class="table is-fullwidth is-striped is-hoverable" v-if="searchResults.length > 0">
+                    <tbody>
+                    <tr v-for="result in searchResults">
+                      <td width="5%"><i class="fa fa-film" aria-hidden="true"></i></td>
+                      <td>{{result.title}}</td>
+                    </tr>
+                    </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -152,18 +157,31 @@ export default {
   },
   watch: {
     search: function(value, oldValue) {
-      if ((value !== '') && (value !== oldValue)) {
+      if (value === '') {
+        this.searchResults = [];
+      } else if (value !== oldValue) {
         this.doSearch();
       }
     },
-
   },
   methods: {
     ...mapActions({
       logout: 'logout'
     }),
     doSearch: function () {
-      console.log("DOing search ", this.search);
+      this.searchResults = this.allMovies.filter(movie => {
+        let title = movie.title.toLowerCase();
+        return title.includes(this.search.toLowerCase());
+      })
+        .sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        });
     }
   }
 
