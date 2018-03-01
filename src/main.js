@@ -79,7 +79,10 @@ const store = new Vuex.Store({
     logout (context) {
       context.commit('logout');
     },
-    addMovie (context, title, medium='DVD', info='') {
+    addMovie (context, params) {
+      let title = params.title;
+      let medium = params.medium ? params.medium : 'DVD';
+      let info = params.info ? params.info : '';
       let newMovie = {
         title: title,
         medium: medium,
