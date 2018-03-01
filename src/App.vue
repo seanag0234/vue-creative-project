@@ -86,4 +86,10 @@
     max-height: 250px;
     overflow-y: scroll;
   }
+  .page-title {
+    padding: 0 3rem 0 1.5rem;
+  }
+  .no-padding {
+    padding: 0 0 0 0;
+  }
 </style>

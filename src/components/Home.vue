@@ -2,11 +2,11 @@
   <div class="container">
     <div class="columns">
       <div class="column is-centered">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li class="is-active"><router-link to="/">Home</router-link></li>
-          </ul>
-        </nav>
+        <!--<nav class="breadcrumb" aria-label="breadcrumbs">-->
+          <!--<ul>-->
+            <!--<li class="is-active"><router-link to="/">Home</router-link></li>-->
+          <!--</ul>-->
+        <!--</nav>-->
         <section class="hero is-info welcome is-small">
           <div class="hero-body">
             <div class="container">
@@ -184,7 +184,6 @@
           });
       }
     }
-
 }
 </script>
 <style scoped>

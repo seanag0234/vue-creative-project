@@ -17,11 +17,11 @@
             Home
           </router-link>
           <div class="navbar-item has-dropdown is-hoverable">
-            <router-link  class="navbar-link"  to="/documentation/overview/start/">
+            <router-link  class="navbar-link" to="/">
               Movies
             </router-link>
             <div class="navbar-dropdown is-boxed">
-              <router-link  class="navbar-item"  to="/documentation/overview/start/">
+              <router-link  class="navbar-item"  to="/my-movies">
                 My movies
               </router-link>
               <router-link  class="navbar-item"  to="/documentation/overview/start/">
