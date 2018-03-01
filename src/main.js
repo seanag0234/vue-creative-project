@@ -13,6 +13,7 @@ const state = {
     movies: {
       owned: [
         {
+          id: 0,
           title: 'The Lion King',
           status: 'In my library',
           type: 'movie',
@@ -21,22 +22,25 @@ const state = {
           updatedAt: 1519854581195
         },
         {
+          id: 1,
           title: 'What About Bob?',
-          status: 'In my Library',
+          status: 'In my library',
           type: 'movie',
           medium: 'DVD',
           info: 'Hilarious',
           updatedAt: 1519854581195
         },
         {
+          id: 2,
           title: 'Hercules',
-          status: 'In my Library',
+          status: 'In my library',
           type: 'movie',
           medium: 'DVD',
           info: 'Love the sass',
           updatedAt: 1519854581195
         },
         {
+          id: 3,
           title: 'Enchanted',
           status: 'In my library',
           type: 'movie',
@@ -45,6 +49,7 @@ const state = {
           updatedAt: 1519854581195
         },
         {
+          id: 4,
           title: 'Glory Road',
           status: 'In my library',
           type: 'movie',
@@ -82,6 +87,9 @@ const store = new Vuex.Store({
         updatedAt: Date.now()
       };
       context.commit('addMovie', newMovie);
+    },
+    updateMovie (context, params) {
+      context.commit('updateMovie', params);
     }
   },
   mutations: {
@@ -90,6 +98,25 @@ const store = new Vuex.Store({
     },
     addMovie (state, newMovie) {
       state.movies.push(newMovie)
+    },
+    updateMovie (state, params) {
+      let status = params.status;
+      let newMovie = params.newMovie;
+      if (state.currentUser.movies[status] !== undefined) {
+        let index = -1;
+        let found = false;
+        state.currentUser.movies[status].forEach((movie, i) => {
+          if (!found && movie.id === newMovie.id) {
+            index = i;
+            found = true;
+          }
+        });
+        if (index > -1) {
+          newMovie.updatedAt = Date.now();
+          console.log(newMovie.updatedAt);
+          state.currentUser.movies[status][index] = newMovie;
+        }
+      }
     }
   }
 });

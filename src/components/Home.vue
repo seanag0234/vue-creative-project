@@ -144,10 +144,10 @@
       allMovies: function () {
         let allMovies = [].concat(this.user.movies.owned, this.user.movies.borrowed, this.user.movies.loaned, this.user.movies.wishList);
         allMovies.sort((a, b) => {
-          if (a.updatedAt < b.updatedAt) {
+          if (a.updatedAt > b.updatedAt) {
             return -1;
           }
-          if (a.updatedAt > b.updatedAt) {
+          if (a.updatedAt < b.updatedAt) {
             return 1
           }
           return 0;
