@@ -16,7 +16,7 @@ const state = {
           title: 'The Lion King',
           status: 'In my library',
           type: 'movie',
-          medium: 'blueRay',
+          medium: 'Blu Ray',
           info: 'Best movie ever',
           updatedAt: 1519854581195
         },
@@ -24,7 +24,7 @@ const state = {
           title: 'What About Bob?',
           status: 'In my Library',
           type: 'movie',
-          medium: 'dvd',
+          medium: 'DVD',
           info: 'Hilarious',
           updatedAt: 1519854581195
         },
@@ -32,7 +32,7 @@ const state = {
           title: 'Hercules',
           status: 'In my Library',
           type: 'movie',
-          medium: 'dvd',
+          medium: 'DVD',
           info: 'Love the sass',
           updatedAt: 1519854581195
         },
@@ -40,7 +40,7 @@ const state = {
           title: 'Enchanted',
           status: 'In my library',
           type: 'movie',
-          medium: 'blueRay',
+          medium: 'Blu Ray',
           info: 'A magical journey',
           updatedAt: 1519854581195
         },
@@ -48,7 +48,7 @@ const state = {
           title: 'Glory Road',
           status: 'In my library',
           type: 'movie',
-          medium: 'dvd',
+          medium: 'DVD',
           info: 'Great sports movie',
           updatedAt: 1267306868000
         }
@@ -74,7 +74,7 @@ const store = new Vuex.Store({
     logout (context) {
       context.commit('logout');
     },
-    addMovie (context, title, medium='dvd', info='') {
+    addMovie (context, title, medium='DVD', info='') {
       let newMovie = {
         title: title,
         medium: medium,

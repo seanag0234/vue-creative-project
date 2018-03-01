@@ -70,7 +70,7 @@
                       <th>Status</th>
                     </tr>
                     <tr v-for="movie in recentActivity">
-                      <td width="5%"><i class="fa fa-film" aria-hidden="true"></i></td>
+                      <td width="5%" class="is-hidden-mobile"><i class="fa fa-film" aria-hidden="true"></i></td>
                       <td>{{movie.title}}</td>
                       <td>{{movie.status}}</td>
                       <!--<td><a class="button is-small is-primary" href="#">Action</a></td>-->

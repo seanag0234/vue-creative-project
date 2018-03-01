@@ -22,15 +22,21 @@
               <table class="table is-fullwidth is-striped is-hoverable">
                 <tbody>
                 <tr>
-                  <td></td>
+                  <td class="is-hidden-mobile"></td>
                   <th>Title</th>
+                  <th class="is-hidden-mobile">Info</th>
                   <th>Status</th>
+                  <th class="is-hidden-mobile">Type</th>
+                  <th class="is-hidden-mobile">Updated At</th>
                   <td></td>
                 </tr>
                 <tr v-for="movie in user.movies.owned">
-                  <td width="5%"><i class="fa fa-film" aria-hidden="true"></i></td>
+                  <td width="5%" class="is-hidden-mobile"><i class="fa fa-film" aria-hidden="true"></i></td>
                   <td>{{movie.title}}</td>
+                  <td class="is-hidden-mobile">{{movie.info}}</td>
                   <td>{{movie.status}}</td>
+                  <td class="is-hidden-mobile">{{movie.medium}}</td>
+                  <td class="is-hidden-mobile">{{movie.updatedAt}}</td>
                   <td width="5%"><a class="button is-small is-primary" href="#">Edit</a></td>
                 </tr>
                 </tbody>
