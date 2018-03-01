@@ -16,24 +16,24 @@
           <router-link class="navbar-item" to="/" exact>
             Home
           </router-link>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <router-link  class="navbar-link" to="/">
-              Movies
+          <div class="navbar-start is-hoverable">
+            <router-link  class="navbar-item" to="/my-movies" exact>
+              My Movies
             </router-link>
-            <div class="navbar-dropdown is-boxed">
-              <router-link  class="navbar-item"  to="/my-movies">
-                My movies
-              </router-link>
-              <router-link  class="navbar-item"  to="/documentation/overview/start/">
-                My Wishlist
-              </router-link>
-              <router-link  class="navbar-item"  to="/documentation/overview/start/">
-                Loaned
-              </router-link>
-              <router-link  class="navbar-item"  to="/documentation/overview/start/">
-                Borrowed
-              </router-link>
-            </div>
+            <!--<div class="navbar-dropdown is-boxed">-->
+              <!--<router-link  class="navbar-item"  to="/my-movies">-->
+                <!--My movies-->
+              <!--</router-link>-->
+              <!--<router-link  class="navbar-item"  to="/documentation/overview/start/">-->
+                <!--My Wishlist-->
+              <!--</router-link>-->
+              <!--<router-link  class="navbar-item"  to="/documentation/overview/start/">-->
+                <!--Loaned-->
+              <!--</router-link>-->
+              <!--<router-link  class="navbar-item"  to="/documentation/overview/start/">-->
+                <!--Borrowed-->
+              <!--</router-link>-->
+            <!--</div>-->
           </div>
         </div>
       </div>

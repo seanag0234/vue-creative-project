@@ -27,24 +27,24 @@
                 <p class="subtitle">Movies Owned</p>
               </article>
             </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                <p class="title">{{user.movies.loaned.length}}</p>
-                <p class="subtitle">Movies Loaned</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                <p class="title">{{user.movies.borrowed.length}}</p>
-                <p class="subtitle">Movies Borrowed</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                <p class="title">{{user.movies.wishList.length}}</p>
-                <p class="subtitle">Wishlished Movies</p>
-              </article>
-            </div>
+            <!--<div class="tile is-parent">-->
+              <!--<article class="tile is-child box">-->
+                <!--<p class="title">{{user.movies.loaned.length}}</p>-->
+                <!--<p class="subtitle">Movies Loaned</p>-->
+              <!--</article>-->
+            <!--</div>-->
+            <!--<div class="tile is-parent">-->
+              <!--<article class="tile is-child box">-->
+                <!--<p class="title">{{user.movies.borrowed.length}}</p>-->
+                <!--<p class="subtitle">Movies Borrowed</p>-->
+              <!--</article>-->
+            <!--</div>-->
+            <!--<div class="tile is-parent">-->
+              <!--<article class="tile is-child box">-->
+                <!--<p class="title">{{user.movies.wishList.length}}</p>-->
+                <!--<p class="subtitle">Wishlished Movies</p>-->
+              <!--</article>-->
+            <!--</div>-->
           </div>
         </section>
         <div class="columns">
