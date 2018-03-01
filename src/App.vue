@@ -30,7 +30,7 @@
     background: #ECF0F3;
   }
   .columns {
-    height: 100%;
+    /*height: 100%;*/
   }
   .menu-label {
     color: #8F99A3;

@@ -79,16 +79,17 @@ const store = new Vuex.Store({
     logout (context) {
       context.commit('logout');
     },
-    addMovie (context, params) {
-      let title = params.title;
-      let medium = params.medium ? params.medium : 'DVD';
-      let info = params.info ? params.info : '';
-      let newMovie = {
-        title: title,
-        medium: medium,
-        info: info,
-        updatedAt: Date.now()
-      };
+    addMovie (context, newMovie) {
+      // let title = params.title;
+      // let medium = params.medium ? params.medium : 'DVD';
+      // let info = params.info ? params.info : '';
+      // let newMovie = {
+      //   title: title,
+      //   medium: medium,
+      //   info: info,
+      //   updatedAt: Date.now()
+      // };
+      newMovie.updatedAt = Date.now();
       context.commit('addMovie', newMovie);
     },
     updateMovie (context, params) {
@@ -100,7 +101,7 @@ const store = new Vuex.Store({
       state.isAuthenticated = false;
     },
     addMovie (state, newMovie) {
-      state.movies.push(newMovie)
+      state.currentUser.movies.owned.push(newMovie)
     },
     updateMovie (state, params) {
       let status = params.status;
