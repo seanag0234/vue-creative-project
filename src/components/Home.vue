@@ -69,7 +69,7 @@
                       <th>Title</th>
                       <th>Status</th>
                     </tr>
-                    <tr v-for="movie in recentActivity">
+                    <tr v-for="movie in recentActivity" @click="goToMovie(movie)">
                       <td width="5%" class="is-hidden-mobile"><i class="fa fa-film" aria-hidden="true"></i></td>
                       <td>{{movie.title}}</td>
                       <td>{{movie.status}}</td>
@@ -112,7 +112,7 @@
                     <tbody>
                     <tr v-for="result in searchResults">
                       <td width="5%"><i class="fa fa-film" aria-hidden="true"></i></td>
-                      <td>{{result.title}}</td>
+                      <td><router-link to="/my-movies">{{result.title}}</router-link></td>
                     </tr>
                     </tbody>
                 </table>
@@ -128,6 +128,7 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex';
+  import router from '../router/index'
   export default {
     name: 'Home',
     data () {
@@ -182,6 +183,9 @@
             }
             return 0;
           });
+      },
+      goToMovie: function (movie) {
+        router.push(`/my-movies?movie=${movie.id}`)
       }
     }
 }

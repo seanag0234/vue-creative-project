@@ -225,13 +225,9 @@
         addMovie: 'addMovie',
         deleteMovie: 'deleteMovie'
       }),
-      log: function () {
-        console.log("Clicked");
-      },
       editMovie: function (movie) {
         this.currentMovie = movie;
         this.editingMovie = Object.assign({}, movie);
-        console.log(this.editingMovie.status);
         this.showEdit = true;
       },
       toggleShowEdit: function () {

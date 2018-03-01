@@ -124,7 +124,6 @@ const store = new Vuex.Store({
         });
         if (index > -1) {
           newMovie.updatedAt = Date.now();
-          console.log(newMovie.updatedAt);
           state.currentUser.movies[status][index] = newMovie;
         }
       }
