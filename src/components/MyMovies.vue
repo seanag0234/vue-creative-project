@@ -113,7 +113,7 @@
           <div class="field">
             <label class="label">Title</label>
             <div class="control">
-              <input class="input" v-model="newMovie.title" type="text">
+              <input class="input" v-bind:class="{'is-danger': !isValid}" v-model="newMovie.title" type="text">
             </div>
           </div>
 
@@ -146,7 +146,7 @@
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success" @click="createMovie">Add Movie</button>
+          <button class="button is-success" @click="createMovie" v-bind:disabled="!isValid">Add Movie</button>
           <button class="button" v-on:click="toggleShowAdd">Cancel</button>
         </footer>
       </div>
@@ -211,6 +211,12 @@
           }
           return 0;
         })
+      },
+      isValid: function () {
+        if (this.newMovie.title === '') {
+          return false
+        }
+        return true;
       }
     },
     methods: {
@@ -248,7 +254,6 @@
       },
       createMovie: function () {
         // this.currentMovie = Object.assign({}, this.editingMovie);
-        console.log(this.newMovie);
         this.addMovie(this.newMovie);
         this.toggleShowAdd();
       },
@@ -262,7 +267,7 @@
       removeMovie: function () {
         this.toggleShowDelete();
         this.deleteMovie(this.currentMovie.id);
-      }
+      },
     }
   }
 </script>
