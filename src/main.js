@@ -80,15 +80,6 @@ const store = new Vuex.Store({
       context.commit('logout');
     },
     addMovie (context, newMovie) {
-      // let title = params.title;
-      // let medium = params.medium ? params.medium : 'DVD';
-      // let info = params.info ? params.info : '';
-      // let newMovie = {
-      //   title: title,
-      //   medium: medium,
-      //   info: info,
-      //   updatedAt: Date.now()
-      // };
       newMovie.updatedAt = Date.now();
       context.commit('addMovie', newMovie);
     },

@@ -65,7 +65,7 @@
                   <table class="table is-fullwidth is-striped is-hoverable">
                     <tbody>
                     <tr>
-                      <td></td>
+                      <td class="is-hidden-mobile"></td>
                       <th>Title</th>
                       <th>Status</th>
                     </tr>

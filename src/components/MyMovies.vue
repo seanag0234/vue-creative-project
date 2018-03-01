@@ -13,12 +13,12 @@
         </section>
       </div>
     </div>
-    <div class="columns">
-      <div class="column welcome">
-        <a @click="toggleShowAdd" class="is-pulled-right button is-info has-text-weight-bold">Add<i style="padding-left: 8px" class="fa fa-plus-circle" aria-hidden="true"></i></a>
+    <div class="columns" style="">
+      <div class="column">
+          <a @click="toggleShowAdd" class="button is-info has-text-weight-bold">Add<i style="padding-left: 8px" class="fa fa-plus-circle" aria-hidden="true"></i></a>
       </div>
     </div>
-    <div class="columns is-fluid">
+    <div class="columns">
       <div class="column">
         <div class="card events-card">
           <div>
@@ -31,7 +31,7 @@
                   <th class="is-hidden-mobile">Info</th>
                   <th>Status</th>
                   <th class="is-hidden-mobile">Type</th>
-                  <th class="is-hidden-mobile">Updated At</th>
+                  <th class="is-hidden-mobile is-hidden-tablet">Updated At</th>
                   <td></td>
                 </tr>
                 <tr v-for="movie in movies" v-on:click="editMovie(movie)">
@@ -40,7 +40,7 @@
                   <td class="is-hidden-mobile">{{movie.info}}</td>
                   <td>{{movie.status}}</td>
                   <td class="is-hidden-mobile">{{movie.medium}}</td>
-                  <td class="is-hidden-mobile">{{convertDate(movie.updatedAt)}}</td>
+                  <td class="is-hidden-mobile is-hidden-tablet">{{convertDate(movie.updatedAt)}}</td>
                   <td width="5%"><a class="button is-small is-primary" href="#">Edit</a></td>
                 </tr>
                 </tbody>
