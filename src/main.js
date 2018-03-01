@@ -85,6 +85,9 @@ const store = new Vuex.Store({
     },
     updateMovie (context, params) {
       context.commit('updateMovie', params);
+    },
+    deleteMovie (context, id) {
+      context.commit('deleteMovie', id);
     }
   },
   mutations: {
@@ -93,6 +96,19 @@ const store = new Vuex.Store({
     },
     addMovie (state, newMovie) {
       state.currentUser.movies.owned.push(newMovie)
+    },
+    deleteMovie (state, movieId) {
+      let index = -1;
+      let found = false;
+      state.currentUser.movies.owned.forEach((movie, i) => {
+        if (!found && movie.id === movieId) {
+          index = i;
+          found = true;
+        }
+      });
+      if (found > -1) {
+        state.currentUser.movies.owned.splice(index, 1);
+      }
     },
     updateMovie (state, params) {
       let status = params.status;

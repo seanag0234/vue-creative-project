@@ -33,15 +33,17 @@
                   <th class="is-hidden-mobile">Type</th>
                   <th class="is-hidden-mobile is-hidden-tablet">Updated At</th>
                   <td></td>
+                  <td></td>
                 </tr>
-                <tr v-for="movie in movies" v-on:click="editMovie(movie)">
+                <tr v-for="movie in movies" >
                   <td width="5%" class="is-hidden-mobile"><i class="fa fa-film" aria-hidden="true"></i></td>
                   <td>{{movie.title}}</td>
                   <td class="is-hidden-mobile">{{movie.info}}</td>
                   <td>{{movie.status}}</td>
                   <td class="is-hidden-mobile">{{movie.medium}}</td>
                   <td class="is-hidden-mobile is-hidden-tablet">{{convertDate(movie.updatedAt)}}</td>
-                  <td width="5%"><a class="button is-small is-primary" href="#">Edit</a></td>
+                  <td width="5%"><a @click="editMovie(movie)" class="button is-small is-primary" href="#">Edit</a></td>
+                  <td width="5%"><a @click="startDelete(movie)" class="button is-small is-danger" href="#">Delete</a></td>
                 </tr>
                 </tbody>
               </table>
@@ -150,6 +152,27 @@
       </div>
     </div>
 
+
+    <div class="modal" v-bind:class="{'is-active': showDelete}">
+      <div class="modal-background" v-on:click="toggleShowDelete"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Delete</p>
+          <button class="delete" v-on:click="toggleShowDelete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+
+          <div class="field">
+            <span>Are you sure you want to delete {{currentMovie.title}}?</span>
+          </div>
+
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-danger" @click="removeMovie">Delete</button>
+          <button class="button" v-on:click.prevent="toggleShowDelete">Cancel</button>
+        </footer>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -161,6 +184,7 @@
       return {
         showEdit: false,
         showAdd: false,
+        showDelete: false,
         currentMovie: {},
         editingMovie: {},
         newMovie: {
@@ -192,7 +216,8 @@
     methods: {
       ...mapActions({
         updateMovie: 'updateMovie',
-        addMovie: 'addMovie'
+        addMovie: 'addMovie',
+        deleteMovie: 'deleteMovie'
       }),
       log: function () {
         console.log("Clicked");
@@ -208,6 +233,13 @@
       },
       toggleShowAdd: function () {
         this.showAdd = !this.showAdd;
+      },
+      toggleShowDelete: function () {
+        this.showDelete = !this.showDelete;
+      },
+      startDelete: function (movie) {
+        this.currentMovie = movie;
+        this.toggleShowDelete();
       },
       saveMovie: function () {
         // this.currentMovie = Object.assign({}, this.editingMovie);
@@ -226,6 +258,10 @@
         let date = dateObj.getFullYear()+'-'+(dateObj.getMonth()+1)+'-'+dateObj.getDate();
         let time = dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
         return date + ' ' + time;
+      },
+      removeMovie: function () {
+        this.toggleShowDelete();
+        this.deleteMovie(this.currentMovie.id);
       }
     }
   }
