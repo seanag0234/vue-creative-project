@@ -178,6 +178,13 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex';
+  let blankMovie = {
+    title: '',
+    medium: 'DVD',
+    info: '',
+    type: 'movie',
+    status: 'In my library'
+  };
   export default {
     name: "my-movies",
     data() {
@@ -187,13 +194,7 @@
         showDelete: false,
         currentMovie: {},
         editingMovie: {},
-        newMovie: {
-          title: '',
-          medium: 'DVD',
-          info: '',
-          type: 'movie',
-          status: 'In my library'
-        }
+        newMovie: Object.assign({}, blankMovie)
       }
     },
     computed: {
@@ -246,11 +247,12 @@
       saveMovie: function () {
         // this.currentMovie = Object.assign({}, this.editingMovie);
         this.updateMovie({status:'owned', newMovie: this.editingMovie});
+        this.editingMovie = {};
         this.toggleShowEdit();
       },
       createMovie: function () {
-        // this.currentMovie = Object.assign({}, this.editingMovie);
         this.addMovie(this.newMovie);
+        this.newMovie = Object.assign({}, blankMovie);
         this.toggleShowAdd();
       },
       convertDate: function (timeInMil) {

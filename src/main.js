@@ -61,8 +61,9 @@ const state = {
       loaned: [],
       borrowed: [],
       wishList: []
-    }
-  }
+    },
+  },
+  nextId: 5
 };
 
 const store = new Vuex.Store({
@@ -73,6 +74,9 @@ const store = new Vuex.Store({
     },
     user: state => {
       return state.currentUser;
+    },
+    nextId: state => {
+      return state.nextId;
     }
   },
   actions: {
@@ -80,7 +84,9 @@ const store = new Vuex.Store({
       context.commit('logout');
     },
     addMovie (context, newMovie) {
+      newMovie.id = state.nextId;
       newMovie.updatedAt = Date.now();
+      context.commit('increment');
       context.commit('addMovie', newMovie);
     },
     updateMovie (context, params) {
@@ -91,8 +97,8 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    logout (state) {
-      state.isAuthenticated = false;
+    increment (state) {
+      state.nextId++;
     },
     addMovie (state, newMovie) {
       state.currentUser.movies.owned.push(newMovie)
