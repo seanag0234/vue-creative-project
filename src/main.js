@@ -15,7 +15,7 @@ const state = {
         {
           id: 0,
           title: 'The Lion King',
-          status: 'In my library',
+          status: 'Borrowed',
           type: 'movie',
           medium: 'Blu Ray',
           info: 'Best movie ever',
@@ -51,7 +51,7 @@ const state = {
         {
           id: 4,
           title: 'Glory Road',
-          status: 'In my library',
+          status: 'Loaned out',
           type: 'movie',
           medium: 'DVD',
           info: 'Great sports movie',

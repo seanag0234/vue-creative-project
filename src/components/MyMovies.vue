@@ -235,6 +235,9 @@
         this.showEdit = !this.showEdit;
       },
       toggleShowAdd: function () {
+        if (this.showAdd) {
+          this.newMovie = Object.assign({}, blankMovie);
+        }
         this.showAdd = !this.showAdd;
       },
       toggleShowDelete: function () {
